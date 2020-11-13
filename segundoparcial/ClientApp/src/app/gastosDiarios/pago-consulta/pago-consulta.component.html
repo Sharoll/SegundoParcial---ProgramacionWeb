@@ -9,7 +9,6 @@
               <tr>
                     <th scope="col">#</th>
                     <th scope="col">CodPersona </th>
-                    <th scope="col">CodPago </th>
                     <th scope="col">TipoPago </th>
                     <th scope="col">FechaPago </th>
                     <th scope="col">ValorPago </th>
@@ -22,11 +21,20 @@
               <tr *ngFor="let pago of pagos|filtroPago:searchText ; index as i ">
                     <th scope="row">{{ i + 1 }}</th>
                     <td>{{ pago.codPersona }}</td>
-                    <td>{{ pago.codPago }}</td>
                     <td>{{ pago.tipoPago }}</td>
                     <td>{{ pago.fechaPago }}</td>
                     <td>{{ pago.valorPago|currency:'COP':true}}</td>
                     <td>{{ pago.valorIvaPago|currency:'COP':true}}</td>     
                 </tr>
+ <!--        <hr>
+    <tr>
+      <td></td>
+      <td>Total:</td>
+      <td>{{ total | currency }}</td>
+    </tr>
         </tbody>
     </table>
+        <label>Nombre</label>
+        <input type="string"  name="total" [(ngModel)]="total"  readonly/>
+  
+ -->

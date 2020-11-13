@@ -17,6 +17,8 @@ import { FooterComponent } from './gastosDiarios/footer/footer.component';
 import { HeaderComponent } from './gastosDiarios/header/header.component';
 import { PersonaService } from './services/persona.service';
 import { FiltroPagoPipe } from './pipe/filtro-pago.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,20 +33,24 @@ import { FiltroPagoPipe } from './pipe/filtro-pago.pipe';
     PagoConsultaComponent,
     FooterComponent,
     HeaderComponent,
-    FiltroPagoPipe
+    FiltroPagoPipe,
+    AlertModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ]),
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
+  entryComponents:[AlertModalComponent],
   providers: [PersonaService],
   bootstrap: [AppComponent]
 })

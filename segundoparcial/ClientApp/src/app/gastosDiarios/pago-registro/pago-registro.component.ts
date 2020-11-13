@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
 import { PagoService } from 'src/app/services/pago.service';
+import { PersonaService } from 'src/app/services/persona.service';
 import { Pago } from '../models/pago';
 import { Persona } from '../models/persona';
 
@@ -10,14 +13,19 @@ import { Persona } from '../models/persona';
   styleUrls: ['./pago-registro.component.css']
 })
 export class PagoRegistroComponent implements OnInit {
+  identificacion: string;
   formGroup: FormGroup;
   persona: Persona;
   pago: Pago;
 
-  constructor(private pagoService: PagoService, private formBuilder: FormBuilder) { }
+  constructor(private pagoService: PagoService,private personaService:PersonaService, 
+    private formBuilder: FormBuilder, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.pago = new Pago();
+    this.persona = new Persona();
+    this.identificacion = '';
+    this.persona.nombre = '';
     this.buildForm();
   }
   private buildForm(){
@@ -35,6 +43,22 @@ export class PagoRegistroComponent implements OnInit {
       
     });
    
+  }
+  Buscar(){
+    this.personaService.buscar(this.identificacion).subscribe(
+      r => {
+        if (r != null) {
+          const messageBox = this.modalService.open(AlertModalComponent)
+          messageBox.componentInstance.title = "Resultado Operación";
+          messageBox.componentInstance.message = 'Persona existe!!! :-)';
+          this.persona=r;
+        }else{
+          const messageBox = this.modalService.open(AlertModalComponent)
+          messageBox.componentInstance.title = "Resultado Operación";
+          messageBox.componentInstance.message = 'Persona no existe!!! :-)';
+        }
+   
+    });
   }
 
   onSubmit() {

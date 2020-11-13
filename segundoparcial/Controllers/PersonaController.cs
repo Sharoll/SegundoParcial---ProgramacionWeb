@@ -39,6 +39,17 @@ namespace segundoparcial.Controllers
             return Ok(response.Persona);
         }
 
+        [HttpGet("{identificacion}")]
+        public ActionResult<PersonaViewModel> Get(string identificacion)
+        {
+            var response = _personaService.Buscar(identificacion);
+            if(response.Error)
+            {
+                return BadRequest(response.Mensaje);
+            }
+            return Ok(response.Persona);
+        }
+
         private Persona MapearPersona(PersonaInputModel personaInput){
             var persona = new Persona();
             

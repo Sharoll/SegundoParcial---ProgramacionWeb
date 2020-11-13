@@ -38,7 +38,13 @@ namespace Logica
 
             return personas;
         }
-
+        public GuardarPersonaResponse Buscar(string Identificacion){
+            Persona persona = _context.Personas.Find(Identificacion);
+            if(persona == null){
+                return new GuardarPersonaResponse("No existe");
+            }
+            return new GuardarPersonaResponse(persona);
+        }
         
     }
     public class GuardarPersonaResponse 
@@ -58,4 +64,6 @@ namespace Logica
         public Persona Persona { get; set; }
 
     }
+
+    
 }

@@ -10,7 +10,7 @@ import { Persona } from '../models/persona';
   styleUrls: ['./persona-registro.component.css']
 })
 export class PersonaRegistroComponent implements OnInit {
-
+  identificacion: string;
   formGroup: FormGroup;
   persona: Persona;
   pago: Pago;
@@ -47,12 +47,14 @@ export class PersonaRegistroComponent implements OnInit {
       ciudad: [this.persona.ciudad, [Validators.required, Validators.min(1)]]
       
     });
-   
-  }
+
+    
+}
+
 
   onSubmit() {
 
-        if (this.formGroup.invalid) {
+        if(this.formGroup.invalid) {
           return;
         }
         this.add();
@@ -79,6 +81,7 @@ export class PersonaRegistroComponent implements OnInit {
   get control() { 
     return this.formGroup.controls;
   }
+  
 
 
 }

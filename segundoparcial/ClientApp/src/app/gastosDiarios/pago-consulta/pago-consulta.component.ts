@@ -13,18 +13,29 @@ import { Pago } from '../models/pago';
 export class PagoConsultaComponent implements OnInit {
   pagos: Pago[];
   searchText: string;
-  
+  total:number;
   
   constructor(private pagoService: PagoService) { }
 
   ngOnInit(): void {
- this.get();
+    this.total=0;
+    this.get();
+   // this.calcularvalortotal();
   }
 
    get (){
     this.pagoService.get().subscribe(result=>{
       this.pagos=result;
     });
+    
   } 
+ /*  calcularvalortotal(){
+    this.total = this.pagos.reduce((
+      acc,
+      obj,
+    ) => acc + (obj.valorPago),
+    0);
+    console.log("Total: ", this.total);
+  } */
 
 }

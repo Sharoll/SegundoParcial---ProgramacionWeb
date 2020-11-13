@@ -29,13 +29,11 @@ export class PagoConsultaComponent implements OnInit {
     });
     
   } 
- /*  calcularvalortotal(){
-    this.total = this.pagos.reduce((
-      acc,
-      obj,
-    ) => acc + (obj.valorPago),
-    0);
-    console.log("Total: ", this.total);
-  } */
+ calcularvalortotal(){
+  this.total=0;
+    this.pagos.forEach(pago => {
+      this.total = this.total + pago.valorPago;
+    });
+  } 
 
 }

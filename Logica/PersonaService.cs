@@ -14,7 +14,7 @@ namespace Logica
             _context=context;
         }
 
-         public GuardarPersonaResponse Guardar(Persona persona)
+        public GuardarPersonaResponse Guardar(Persona persona)
         {
             try
             {
@@ -39,7 +39,9 @@ namespace Logica
             return personas;
         }
 
-        public class GuardarPersonaResponse 
+        
+    }
+    public class GuardarPersonaResponse 
     {
         public GuardarPersonaResponse(Persona persona)
         {
@@ -55,6 +57,5 @@ namespace Logica
         public string Mensaje { get; set; }
         public Persona Persona { get; set; }
 
-    }
     }
 }

@@ -22,7 +22,7 @@ namespace segundoparcial.Models
         }
         public PagoViewModel(Pago pago)
         {
-            CodPago = pago.CodPago;
+            
             CodPersona = pago.CodPersona;
             TipoPago = pago.TipoPago;
             FechaPago = pago.FechaPago;

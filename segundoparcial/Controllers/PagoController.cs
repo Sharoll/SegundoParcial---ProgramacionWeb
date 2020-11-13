@@ -42,7 +42,6 @@ namespace segundoparcial.Controllers
         private Pago MapearPago(PagoInputModel pagoInput){
             var pago = new Pago();
             
-                pago.CodPago = pagoInput.CodPago;
                 pago.CodPersona=pagoInput.CodPersona;
                 pago.TipoPago=pagoInput.TipoPago;
                 pago.FechaPago=pagoInput.FechaPago;
@@ -51,6 +50,7 @@ namespace segundoparcial.Controllers
                 
             return pago;
         }
+        
 
     }
 }

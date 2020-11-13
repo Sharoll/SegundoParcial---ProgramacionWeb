@@ -44,12 +44,7 @@ export class PersonaRegistroComponent implements OnInit {
       telefono:[this.persona.telefono, Validators.required],
       pais: [this.persona.pais, Validators.required],
       departamento: [this.persona.departamento, [Validators.required, Validators.min(1)]],
-      ciudad: [this.persona.ciudad, [Validators.required, Validators.min(1)]],
-      codPago: [this.pago.codPago, Validators.required],
-      tipoPago: [this.pago.tipoPago, Validators.required],
-      fechaPago: [this.pago.fechaPago, Validators.required],
-      valorPago: [this.pago.valorPago, Validators.required],
-      valorIvaPago: [this.pago.valorIvaPago,Validators.required]
+      ciudad: [this.persona.ciudad, [Validators.required, Validators.min(1)]]
       
     });
    
@@ -66,13 +61,13 @@ export class PersonaRegistroComponent implements OnInit {
 
   add(){
     this.persona = this.formGroup.value;
-    this.pago.codPago = this.formGroup.value.codPago;
+    /* this.pago.codPago = this.formGroup.value.codPago;
     this.pago.tipoPago = this.formGroup.value.tipoPago;
     this.pago.fechaPago = this.formGroup.value.fechaPago;
     this.pago.valorPago = this.formGroup.value.valorPago;
     this.pago.valorIvaPago = this.formGroup.value.valorIvaPago;
-
-    this.persona.pago = this.pago;
+    
+    this.persona.pago = this.pago; */
 
     this.personaService.post(this.persona).subscribe(p => {
       if (p != null) {

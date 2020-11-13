@@ -24,8 +24,8 @@ export class PagoService {
         );
     }
 
-    post(persona:Pago): Observable<Pago> {
-      return this.http.post<Pago>(this.baseUrl + 'api/Pago', persona)
+    post(pago:Pago): Observable<Pago> {
+      return this.http.post<Pago>(this.baseUrl + 'api/Pago', pago)
       .pipe(
         tap(_ => this.handleErrorService.log('datos enviados')),
        catchError(this.handleErrorService.handleError<Pago>('Registrar Pago', null))

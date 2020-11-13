@@ -16,6 +16,7 @@ import { PagoConsultaComponent } from './gastosDiarios/pago-consulta/pago-consul
 import { FooterComponent } from './gastosDiarios/footer/footer.component';
 import { HeaderComponent } from './gastosDiarios/header/header.component';
 import { PersonaService } from './services/persona.service';
+import { FiltroPagoPipe } from './pipe/filtro-pago.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PersonaService } from './services/persona.service';
     PagoRegistroComponent,
     PagoConsultaComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    FiltroPagoPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

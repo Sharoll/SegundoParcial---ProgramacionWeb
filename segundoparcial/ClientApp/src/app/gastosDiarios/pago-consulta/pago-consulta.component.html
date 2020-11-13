@@ -19,14 +19,14 @@
             </thead>
     
             <tbody>
-              <tr *ngFor="let pago of pagos ; index as i ">
+              <tr *ngFor="let pago of pagos|filtroPago:searchText ; index as i ">
                     <th scope="row">{{ i + 1 }}</th>
-                    <td>{{persona.pago.codPersona}}</td>
-                    <td>{{ persona.pago.codPago }}</td>
-                    <td>{{ persona.pago.tipoPago }}</td>
-                    <td>{{ persona.pago.fechaPago }}</td>
-                    <td>{{ persona.pago.valorPago|currency:'COP':true}}</td>
-                    <td>{{ persona.pago.valorIvaPago|currency:'COP':true}}</td>     
+                    <td>{{ pago.codPersona }}</td>
+                    <td>{{ pago.codPago }}</td>
+                    <td>{{ pago.tipoPago }}</td>
+                    <td>{{ pago.fechaPago }}</td>
+                    <td>{{ pago.valorPago|currency:'COP':true}}</td>
+                    <td>{{ pago.valorIvaPago|currency:'COP':true}}</td>     
                 </tr>
         </tbody>
     </table>

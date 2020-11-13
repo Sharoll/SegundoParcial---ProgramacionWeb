@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datos.Migrations
 {
     [DbContext(typeof(PersonaContext))]
-    [Migration("20201113094615_InitialCreate")]
+    [Migration("20201113172719_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,8 +23,10 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Entidad.Pago", b =>
                 {
-                    b.Property<string>("CodPago")
-                        .HasColumnType("varchar(10)");
+                    b.Property<int>("CodPago")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CodPersona")
                         .HasColumnType("varchar(15)");

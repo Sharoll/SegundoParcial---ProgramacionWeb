@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PagoService } from 'src/app/services/pago.service';
 import { Pago } from '../models/pago';
+import { Persona } from '../models/persona';
 
 @Component({
   selector: 'app-pago-registro',
@@ -9,34 +11,56 @@ import { Pago } from '../models/pago';
 })
 export class PagoRegistroComponent implements OnInit {
   formGroup: FormGroup;
-  controlPago: Pago;
+  persona: Persona;
+  pago: Pago;
 
-  constructor(
-    private formBuilder: FormBuilder
-    ) { }
+  constructor(private pagoService: PagoService, private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
-    this.InicializarFormulario();
+  ngOnInit() {
+    this.pago = new Pago();
+    this.buildForm();
+  }
+  private buildForm(){
+    this.pago.codPersona = '';
+    this.pago.tipoPago = '';
+    this.pago.fechaPago = new Date(Date.now());
+    this.pago.valorPago = 0;
+    this.pago.valorIvaPago = 0;
+    this.formGroup = this.formBuilder.group({
+      codPersona: [this.pago.codPersona, Validators.required],
+      tipoPago: [this.pago.tipoPago, Validators.required],
+      fechaPago: [this.pago.fechaPago, Validators.required],
+      valorPago: [this.pago.valorPago, Validators.required],
+      valorIvaPago:[this.pago.valorIvaPago, Validators.required],
+      
+    });
+   
   }
 
-  Registrar() {
+  onSubmit() {
+        if (this.formGroup.invalid) {
+          return;
+        }
+        this.add();
+  }
     
-  }
 
-  InicializarFormulario() {
-    this.formGroup = this.formBuilder.group({
-      codPersona: ['', Validators.required],
-      tipoPago: ['', Validators.required],
-      fecha: [, Validators.required],
-      valorPago: [0, Validators.required],
-      valorIvaPago: [0, Validators.required]
+  add(){
+    this.pago.codPersona = this.formGroup.value.codPersona;
+    this.pago.tipoPago = this.formGroup.value.tipoPago;
+    this.pago.fechaPago = this.formGroup.value.fechaPago;
+    this.pago.valorPago = this.formGroup.value.valorPago;
+    this.pago.valorIvaPago = this.formGroup.value.valorIvaPago;
+
+    this.pagoService.post(this.pago).subscribe(p => {
+      if (p != null) {
+        alert('pago registrado');
+        this.pago = p;
+      }
     });
   }
 
-  get formulario() { return this.formGroup.controls; }
-  get codPersona() { return this.formGroup.get("codPersona"); }
-  get tipoPago() { return this.formGroup.get("tipoPago"); }
-  get fecha() { return this.formGroup.get("fecha"); }
-  get valorPago() { return this.formGroup.get("valorPago"); }
-  get valorIvaPago() { return this.formGroup.get("valorIvaPago"); }
+  get control() { 
+    return this.formGroup.controls;
+  }
 }

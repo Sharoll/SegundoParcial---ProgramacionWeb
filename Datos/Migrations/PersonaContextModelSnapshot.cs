@@ -21,8 +21,10 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Entidad.Pago", b =>
                 {
-                    b.Property<string>("CodPago")
-                        .HasColumnType("varchar(10)");
+                    b.Property<int>("CodPago")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CodPersona")
                         .HasColumnType("varchar(15)");

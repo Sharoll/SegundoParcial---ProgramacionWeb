@@ -5,7 +5,7 @@ namespace segundoparcial.Models
 {
     public class PagoInputModel{
 
-        public string CodPago {get;set;}
+        public int CodPago {get;set;}
         public string CodPersona {get;set;}  
         public string TipoPago {get;set;}
         public DateTime FechaPago {get;set;}

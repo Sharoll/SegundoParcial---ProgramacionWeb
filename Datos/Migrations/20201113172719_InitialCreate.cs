@@ -11,7 +11,8 @@ namespace Datos.Migrations
                 name: "Pagos",
                 columns: table => new
                 {
-                    CodPago = table.Column<string>(type: "varchar(10)", nullable: false),
+                    CodPago = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CodPersona = table.Column<string>(type: "varchar(15)", nullable: true),
                     TipoPago = table.Column<string>(type: "varchar(30)", nullable: true),
                     FechaPago = table.Column<DateTime>(type: "date", nullable: false),

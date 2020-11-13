@@ -66,7 +66,6 @@ export class PersonaRegistroComponent implements OnInit {
     this.pago.fechaPago = this.formGroup.value.fechaPago;
     this.pago.valorPago = this.formGroup.value.valorPago;
     this.pago.valorIvaPago = this.formGroup.value.valorIvaPago;
-    
     this.persona.pago = this.pago; */
 
     this.personaService.post(this.persona).subscribe(p => {

@@ -7,8 +7,8 @@ namespace Entidad
     public class Pago
     {
         [Key]
-        [Column(TypeName = "varchar(15)")]
-        public string CodPago {get;set;}
+        [Column(TypeName = "int")]
+        public int CodPago {get;set;}
 
         [Column(TypeName = "varchar(15)")]
         public string CodPersona {get;set;}

@@ -1,1 +1,64 @@
-
+<div class="container">
+        <div class="row">
+                <div class="col-md-6 offset-md-3">
+                        <h2>Registro de Pagos</h2>
+            <form [formGroup]="formGroup">
+                <div class="form-group">
+                    <label>CodPersona</label>
+                    <input type="text"  name="codPersona" formControlName="codPersona" class="form-control" />
+                </div>              
+                <div class="form-group">
+                    <label>Tipo de pago</label>
+                    <select name="tipoPago" class="form-control" formControlName="tipoPago">
+                        <option value="Administrativos">Administrativos</option>
+                        <option value="Financieros">Financieros</option>
+                        <option value="Legales">Legales</option>
+                        <option value="ViajesYTransportes">Viajes y transportes</option>
+                        <option value="Honorarios">Honorarios</option>
+                        <option value="Arrendamiento">Arrendamiento</option>
+                        <option value="Impuestos">Impuestos</option>
+                        <option value="Retenciones">Retenciones</option>
+                    </select>
+                    <div *ngIf="tipoPago.invalid && (tipoPago.dirty || tipoPago.touched)" class="invalid-feedback">
+                        <div *ngIf="tipoPago.errors.required">
+                            Este campo es obligatorio.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Fecha de pago:</label>
+                    <input type="date" class="form-control"  formControlName="fecha">
+                    <div *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)" class="invalid-feedback">
+                        <div *ngIf="fecha.errors.required">
+                            Este campo es obligatorio.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Valor de pago</label>
+                    <input type="number"  name="valorPago" formControlName="valorPago" class="form-control" />
+                    <div *ngIf="valorPago.invalid && (valorPago.dirty || valorPago.touched)" class="invalid-feedback">
+                        <div *ngIf="valorPago.errors.required">
+                            Este campo es obligatorio.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Valor del Iva del pago</label>
+                    <input type="number"  name="valorIvaPago" formControlName="valorIvaPago" class="form-control" />
+                    <div *ngIf="valorIvaPago.invalid && (valorIvaPago.dirty || valorIvaPago.touched)"
+                        class="invalid-feedback">
+                        <div *ngIf="valorIvaPago.errors.required">
+                            Este campo es obligatorio.
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1"(click)="Registrar()"[disabled]="formGroup.invalid">Registrar</button>
+                    <button class="btn btn-secondary" type="reset">Cancelar</button>
+                </div>
+                            
+            </form>  
+        </div>
+    </div>
+</div>

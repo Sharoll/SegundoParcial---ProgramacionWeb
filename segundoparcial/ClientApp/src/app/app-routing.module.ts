@@ -1,12 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { PersonaConsultaComponent } from './gastosDiarios/persona-consulta/persona-consulta.component';
+import { PersonaRegistroComponent } from './gastosDiarios/persona-registro/persona-registro.component';
+import { PagoRegistroComponent } from './gastosDiarios/pago-registro/pago-registro.component';
+import { PagoConsultaComponent } from './gastosDiarios/pago-consulta/pago-consulta.component';
 
-
+const routes: Routes = [
+  {
+  path: 'personaConsulta',
+  component: PersonaConsultaComponent
+  },
+  {
+  path: 'personaRegistro',
+  component: PersonaRegistroComponent
+  },
+  {
+  path: 'pagoRegistro',
+  component: PagoRegistroComponent
+  },
+  {
+  path: 'pagoConsulta',
+  component: PagoConsultaComponent
+  }
+  ];
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    RouterModule.forRoot(routes)
+  ],
+  exports:[RouterModule]
 })
 export class AppRoutingModule { }

@@ -12,6 +12,10 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PersonaRegistroComponent } from './gastosDiarios/persona-registro/persona-registro.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PersonaConsultaComponent } from './gastosDiarios/persona-consulta/persona-consulta.component';
+import { PagoRegistroComponent } from './gastosDiarios/pago-registro/pago-registro.component';
+import { PagoConsultaComponent } from './gastosDiarios/pago-consulta/pago-consulta.component';
+import { FooterComponent } from './gastosDiarios/footer/footer.component';
+import { HeaderComponent } from './gastosDiarios/header/header.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { PersonaConsultaComponent } from './gastosDiarios/persona-consulta/perso
     CounterComponent,
     FetchDataComponent,
     PersonaRegistroComponent,
-    PersonaConsultaComponent
+    PersonaConsultaComponent,
+    PagoRegistroComponent,
+    PagoConsultaComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

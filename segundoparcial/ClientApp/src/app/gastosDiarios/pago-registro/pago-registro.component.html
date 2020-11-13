@@ -10,15 +10,33 @@
                     <button class="btn btn-primary mr-1"(click)="Buscar()">Buscar</button>               
                 </div>
             </div>
+            <form class="formGroup">
             <div class="form-group">
                 <label>Nombre</label>
-                <input type="string"  name="total" [(ngModel)]="persona.nombre"  readonly/>
+                <input type="string"  name="nombrepersona" [(ngModel)]="persona.nombre"  readonly/>
             </div> 
               
             <div class="form-group">
                 <label>Direccion</label>
-                <input type="string"  name="total" [(ngModel)]="persona.direccion" readonly/>
-            </div> 
+                <input type="string"  name="direccionpersona" [(ngModel)]="persona.direccion" readonly/>
+            </div>
+            <div class="form-group">
+                <label>Telefono</label>
+                <input type="string"  name="telefonoPersona" [(ngModel)]="persona.telefono" readonly/>
+            </div>
+            <div class="form-group">
+                <label>Pais</label>
+                <input type="string"  name="paisPersona" [(ngModel)]="persona.pais" readonly/>
+            </div>
+            <div class="form-group">
+                <label>Departamento</label>
+                <input type="string"  name="departamentoPersona" [(ngModel)]="persona.departamento" readonly/>
+            </div>
+            <div class="form-group">
+                <label>Ciudad</label>
+                <input type="string"  name="ciudadPersona" [(ngModel)]="persona.ciudad" readonly/>
+            </div>
+        </form>
             <form [formGroup]="formGroup">
                 <div class="form-group">
                     <label>CodPersona</label>

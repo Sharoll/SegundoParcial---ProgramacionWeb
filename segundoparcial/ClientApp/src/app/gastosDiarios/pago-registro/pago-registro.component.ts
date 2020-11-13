@@ -25,7 +25,14 @@ export class PagoRegistroComponent implements OnInit {
     this.pago = new Pago();
     this.persona = new Persona();
     this.identificacion = '';
+    this.persona.tipoDocumento= '';
+    this.persona.identificacion= '';
     this.persona.nombre = '';
+    this.persona.direccion = '';
+    this.persona.telefono = '';
+    this.persona.pais = '';
+    this.persona.departamento = '';
+    this.persona.ciudad = '';
     this.buildForm();
   }
   private buildForm(){
